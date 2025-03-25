@@ -47,7 +47,7 @@ public:
  cerr << "Элемент с именем " << afterName << " не найден." << endl;
  }
  }
- void removeByName(const std::string& name) {
+ void removeByName(const string& name) {
  Node* current = head;
  Node* prev = nullptr;
  while (current && current->name != name) {
@@ -68,7 +68,7 @@ public:
  void display() const {
  Node* current = head;
  while (current) {
- std::cout << "Имя: " << current->name << ", Возраст: " << current->age << ", Счет: " << current->score << endl;
+ cout << "Имя: " << current->name << ", Возраст: " << current->age << ", Счет: " << current->score << endl;
  current = current->next;
  }
  }
