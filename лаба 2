@@ -1,7 +1,5 @@
-
 #include <iostream>
 using namespace std;
-
 class vect {
 public:
     int dim;
@@ -30,35 +28,35 @@ public:
         delete[] data; 
     }
 
-    vect operator+(const vect& v) const {  // Добавил const и ссылку
+    vect operator+(const vect& v) const {  
         vect res(dim);
         for (int i = 0; i < dim; i++) res.data[i] = data[i] + v.data[i];
         cout << "Сложение векторов #" << id << " и #" << v.id << endl;
         return res;
     }
 
-    vect operator-(const vect& v) const {  // Добавил const и ссылку
+    vect operator-(const vect& v) const {  
         vect res(dim);
         for (int i = 0; i < dim; i++) res.data[i] = data[i] - v.data[i];
         cout << "Вычитание векторов #" << id << " и #" << v.id << endl;
         return res;
     }
 
-    vect operator-() const {  // Добавил const
+    vect operator-() const {  
         vect res(dim);
         for (int i = 0; i < dim; i++) res.data[i] = -data[i];
         cout << "Инверсия вектора #" << id << endl;
         return res;
     }
 
-    double operator*(const vect& v) const {  // Добавил const и ссылку
+    double operator*(const vect& v) const { 
         double res = 0;
         for (int i = 0; i < dim; i++) res += data[i] * v.data[i];
         cout << "Скалярное произведение векторов #" << id << " и #" << v.id << endl;
         return res;
     }
 
-    vect& operator=(const vect& v) {  // Добавил const и ссылку
+    vect& operator=(const vect& v) {  
         if (this != &v) {
             if (dim != v.dim) {
                 delete[] data;
@@ -74,7 +72,7 @@ public:
 
 int vect::count = 0;
 
-vect operator*(double k, const vect& v) {  // Добавил const и ссылку
+vect operator*(double k, const vect& v) { 
     vect res(v.dim);
     for (int i = 0; i < v.dim; i++) res.data[i] = k * v.data[i];
     cout << "Умножение вектора #" << v.id << " на скаляр " << k << endl;
@@ -116,7 +114,7 @@ public:
         delete[] data;
     }
 
-    matr operator+(const matr& m) const {  // Добавил const и ссылку
+    matr operator+(const matr& m) const {  
         matr res(dim);
         for (int i = 0; i < dim; i++)
             for (int j = 0; j < dim; j++)
@@ -126,7 +124,7 @@ public:
     }
 
 
-matr operator-(const matr& m) const {  // Добавил const и ссылку
+matr operator-(const matr& m) const {  
         matr res(dim);
         for (int i = 0; i < dim; i++)
             for (int j = 0; j < dim; j++)
@@ -135,7 +133,7 @@ matr operator-(const matr& m) const {  // Добавил const и ссылку
         return res;
     }
 
-    matr operator-() const {  // Добавил const
+    matr operator-() const {  
         matr res(dim);
         for (int i = 0; i < dim; i++)
             for (int j = 0; j < dim; j++)
@@ -144,7 +142,7 @@ matr operator-(const matr& m) const {  // Добавил const и ссылку
         return res;
     }
 
-    matr operator*(const matr& m) const {  // Добавил const и ссылку
+    matr operator*(const matr& m) const {  
         matr res(dim);
         for (int i = 0; i < dim; i++)
             for (int j = 0; j < dim; j++) {
@@ -156,7 +154,7 @@ matr operator-(const matr& m) const {  // Добавил const и ссылку
         return res;
     }
 
-    matr& operator=(const matr& m) {  // Добавил const и ссылку
+    matr& operator=(const matr& m) {  
         if (this != &m) {
             if (dim != m.dim) {
                 for (int i = 0; i < dim; i++) delete[] data[i];
@@ -173,7 +171,7 @@ matr operator-(const matr& m) const {  // Добавил const и ссылку
         return *this;
     }
 
-    vect operator*(const vect& v) const {  // Добавил const и ссылку
+    vect operator*(const vect& v) const { 
         vect res(dim);
         for (int i = 0; i < dim; i++) {
             res.data[i] = 0;
@@ -187,7 +185,7 @@ matr operator-(const matr& m) const {  // Добавил const и ссылку
 
 int matr::count = 0;
 
-matr operator*(double k, const matr& m) {  // Добавил const и ссылку
+matr operator*(double k, const matr& m) { 
     matr res(m.dim);
     for (int i = 0; i < m.dim; i++)
         for (int j = 0; j < m.dim; j++)
